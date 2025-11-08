@@ -6,6 +6,7 @@ use crate::traits::discovery::{DiscoveryError, DiscoveryQuery, DiscoveryResult, 
 
 
 /// Note: Currently unimplemented
+#[derive(Default, Debug)]
 pub struct ModProviderFeatures {
     pub supports_endorsements: bool,
     pub requires_api_token: bool,

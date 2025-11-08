@@ -5,13 +5,16 @@ version = "0.1.0"
 edition = "2024"
 description = "Offical SDK for developing plugins for Void Mod Manager (VMM)"
 license = "GPL-3.0-only"
-license-file = "LICENSE.md"
 readme = "README.md"
-keywords = ["modding", "plugins", "sdk", "games", "modding"]
+keywords = ["modding", "plugins", "sdk", "games", "void-mod-manager"]
 repository = "https://github.com/void-mod-manager/lib-vmm"
-categories = ["modding"]
+categories = ["game-development"]
 
 [dependencies]
 async-trait = "0.1.89"
 serde = { version = "1.0.228", features = ["derive"] }
 thiserror = "2.0.17"
+tokio = { version = "1.48.0", features = ["sync"] }
+
+[dev-dependencies]
+tokio = { version = "1.48.0", features = ["macros", "rt"] }
