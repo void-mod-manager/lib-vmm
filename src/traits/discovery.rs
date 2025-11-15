@@ -30,6 +30,7 @@ pub struct DiscoveryQuery {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub struct PaginationMeta {
     pub current: u64,
     pub page_size: u64,
@@ -38,12 +39,14 @@ pub struct PaginationMeta {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub struct Tag {
     pub id: String,
     pub name: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub struct DiscoveryMeta {
     pub provider_id: String,
     pub game_id: String,
@@ -60,6 +63,7 @@ pub struct DiscoveryResult {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub struct ModSummary {
     pub id: String,
     pub name: String,
