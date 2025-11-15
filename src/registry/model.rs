@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 use crate::traits::{game_provider::GameProvider, mod_provider::ModProvider};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub enum ProviderSource {
     Core,
     Plugin(String), // pluginId/Name

@@ -30,20 +30,23 @@ pub struct DiscoveryQuery {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub struct PaginationMeta {
-    pub current: u64,
-    pub page_size: u64,
-    pub total_pages: Option<u64>,
-    pub total_items: Option<u64>,
+    pub current: u32,
+    pub page_size: u32,
+    pub total_pages: Option<u32>,
+    pub total_items: Option<u32>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub struct Tag {
     pub id: String,
     pub name: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub struct DiscoveryMeta {
     pub provider_id: String,
     pub game_id: String,
@@ -53,20 +56,22 @@ pub struct DiscoveryMeta {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub struct DiscoveryResult {
     pub meta: DiscoveryMeta,
     pub mods: Vec<ModSummary>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub struct ModSummary {
     pub id: String,
     pub name: String,
     pub description: String,
     pub short_description: String,
-    pub downloads: u64,
-    pub views: u64,
-    pub likes: u64,
+    pub downloads: u32,
+    pub views: u32,
+    pub likes: u32,
     pub thumbnail_image: String,
     pub tags: Vec<String>,
     pub user_name: String,
@@ -74,6 +79,7 @@ pub struct ModSummary {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub struct ModExtendedMetadata {
     pub header_image: String,
     pub carousel_images: Vec<String>,

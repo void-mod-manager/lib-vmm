@@ -4,6 +4,7 @@ use thiserror::Error;
 
 /// Error types for the registry
 #[derive(Error, Debug, PartialEq, Eq, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub enum RegistryError {
     #[error("Invalid id: {0}")]
     InvalidId(String),
