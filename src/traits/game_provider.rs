@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 use crate::registry::model::ProviderSource;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub enum GameIcon {
     Path(String),
 }
@@ -27,6 +28,7 @@ pub enum GameInstallError {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub struct GameMetadata {
     pub id: String,
     pub display_name: String,
