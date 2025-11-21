@@ -4,7 +4,7 @@ use async_trait::async_trait;
 
 use crate::{
     capabilities::{
-        api_key_capability::{KeyAction, RequiresApiKey}, base::CapabilityRef, builder::CapabilityBuilder, form::{Field, FieldType, FormSchema}
+        api_key_capability::{ApiKeyValidationError, KeyAction, RequiresApiKey}, base::CapabilityRef, builder::CapabilityBuilder, form::{Field, FieldType, FormSchema}
     },
     registry::model::ProviderSource,
     traits::{
@@ -65,12 +65,12 @@ impl Provider for DummyModProvider {
 }
 
 impl RequiresApiKey for DummyModProvider {
-    fn on_provided(&self, key: &str) -> Result<KeyAction, String> {
+    fn on_provided(&self, key: &str) -> Result<KeyAction, ApiKeyValidationError> {
         if key.trim().is_empty() {
-            return Err("API key cannot be empty".into());
+            return Err(ApiKeyValidationError::Empty)
         }
         if key.len() < 16 {
-            return Err("API key looks too short".into());
+            return Err(ApiKeyValidationError::TooShort { min_len: 16 });
         }
 
         Ok(KeyAction::Store)
